@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=1024"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title>Optimizing WordPress design Workflow | by Joan Vega @wetopi.com</title>
+
+    <meta name="author" content="Joan Vega"/>
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet"/>
+
+    <!--
+        
+        Impress.js doesn't depend on any external stylesheets. It adds all of the styles it needs for the
+        presentation to work.
+        
+        This style below contains styles only for demo presentation. Browse it to see how impress.js
+        classes are used to style presentation steps, or how to apply fallback styles, but I don't want
+        you to use them directly in your presentation.
+        
+        Be creative, build your own. We don't really want all impress.js presentations to look the same,
+        do we?
+        
+        When creating your own presentation get rid of this file. Start from scratch, it's fun!
+        
+    -->
+    <link href="fonts/fonts.css" rel="stylesheet"/>
+    <link href="css/wetopi.css" rel="stylesheet"/>
+
+    <link rel="shortcut icon" href="favicon.png"/>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+</head>
+
+<!--
+    
+    Body element is used by impress.js to set some useful class names, that will allow you to detect
+    the support and state of the presentation in CSS or other scripts.
+    
+    First very useful class name is `impress-not-supported`. This class means, that browser doesn't
+    support features required by impress.js, so you should apply some fallback styles in your CSS.
+    It's not necessary to add it manually on this element. If the script detects that browser is not
+    good enough it will add this class, but keeping it in HTML means that users without JavaScript
+    will also get fallback styles.
+    
+    When impress.js script detects that browser supports all required features, this class name will
+    be removed.
+    
+    The class name on body element also depends on currently active presentation step. More details about
+    it can be found later, when `hint` element is being described.
+    
+-->
+<body class="impress-not-supported">
+
+<!--
+    For example this fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<!--
+    
+    Now that's the core element used by impress.js.
+    
+    That's the wrapper for your presentation steps. In this element all the impress.js magic happens.
+    It doesn't have to be a `<div>`. Only `id` is important here as that's how the script find it.
+    
+    You probably won't need it now, but there are some configuration options that can be set on this element.
+    
+    To change the duration of the transition between slides use `data-transition-duration="2000"` giving it
+    a number of ms. It defaults to 1000 (1s).
+    
+    You can also control the perspective with `data-perspective="500"` giving it a number of pixels.
+    It defaults to 1000. You can set it to 0 if you don't want any 3D effects.
+    If you are willing to change this value make sure you understand how CSS perspective works:
+    https://developer.mozilla.org/en/CSS/perspective
+    
+    But as I said, you won't need it for now, so don't worry - there are some simple but interesting things
+    right around the corner of this tag ;)
+    
+    ----------
+    Plugins: We set the default time for autoplay plugin to 6 seconds. Autoplay will automatically advance
+    to next slide after a timeout expires.
+    
+-->
+<div id="impress">
+
+    <!--
+        
+        Here is where interesting thing start to happen.
+        
+        Each step of the presentation should be an element inside the `#impress` with a class name
+        of `step`. These step elements are positioned, rotated and scaled by impress.js, and
+        the 'camera' shows them on each step of the presentation.
+        
+        Positioning information is passed through data attributes.
+        
+        In the example below we only specify x and y position of the step element with `data-x="-1000"`
+        and `data-y="-1500"` attributes. This means that **the center** of the element (yes, the center)
+        will be positioned in point x = -1000px and y = -1500px of the presentation 'canvas'.
+        
+        It will not be rotated or scaled.
+        
+        --------
+        Plugins: For first slide, set the autoplay time to a custom 10 seconds.
+        
+    -->
+    <div id="lets-talk" class="step slide" data-x="-2700" data-y="-1500">
+        <h2>Let’s talk about ...</h2>
+         <h3><strong>OPTIMIZING</strong>
+        WordPress design <strong>WORKFLOW</strong>
+    </h3>
+    </div>
+
+    <!--
+        
+        The `id` attribute of the step element is used to identify it in the URL, but it's optional.
+        If it is not defined, it will get a default value of `step-N` where N is a number of slide.
+        
+        So in the example below it'll be `step-2`.
+        
+        The hash part of the url when this step is active will be `#/step-2`.
+        
+        You can also use `#step-2` in a link, to point directly to this particular step.
+        
+        Please note, that while `#/step-2` (with slash) would also work in a link it's not recommended.
+        Using classic `id`-based links like `#step-2` makes these links usable also in fallback mode.
+        
+    -->
+    <div id="who-am-i" class="step slide" data-x="-1700" data-y="-1500">
+
+        <h2>WHO AMI I ?</h2>
+        <p><strong>2000</strong>
+            developing content managed sites</p>
+        <p><strong>2004</strong>
+            developed a WCMS SAAS</p>
+        <p><strong>2013-14</strong>
+            a startup - tenderlog</p>
+        <p><strong>2015</strong>
+            a lot of fun @wetopi.com</p>
+
+
+    </div>
+
+    <div id="a-good-workflow" class="step slide" data-x="-500" data-y="-1300" data-rotate="30">
+        <h2>A good Workflow Saves you <strong>Time</strong></h2>
+        <p class="fragment" data-autoslide="1000">Time = $$</p>
+        <p class="fragment fade-up" data-autoslide="1000">But more important ...</p>
+        <p class="fragment fade-up">Time = Freedom</p>
+    </div>
+
+
+    <div id="the-workflow-view" class="step" data-x="0" data-y="300" data-z="1500" data-scale="1"></div>
+
+
+    <div id="the-workflow-url" class="step" data-x="920" data-y="85" data-z="0" data-scale=".5" data-rotate="90">
+        <p>
+            <a href="https://wetopi.com/wordpress-design-workflow/" target="_blank">https://wetopi.com/wordpress-design-workflow</a>
+        </p>
+    </div>
+
+
+    <div id="the-f-proposal" class="step" data-x="-1000" data-y="-100" data-z="1500" data-scale="1">
+        <h3 style="text-align: left;">The f...</h3>
+        <p style="text-align: left;"><strong>PROPOSAL</strong></p>
+    </div>
+
+    <div id="be-specific" class="step" data-x="-1340" data-y="0" data-z="1500" data-scale=".1">
+        <p>Be Specific</p>
+        <p>... not too much!</p>
+    </div>
+
+    <div id="the-zero-meeting-goal" class="step" data-x="-2800" data-y="-400" data-z="1700" data-scale="1" data-rotate-y="-30">
+        <h2>The Zero meeting<br>GOAL</h2>
+    </div>
+
+    <div id="the-zero-meeting-mail" class="step" data-x="-2800" data-y="400" data-z="1700" data-scale="1" data-rotate-y="-20">
+        <img src="images/1-2-3-sample.png">
+    </div>
+
+    <div id="the-zero-meeting-use-case" class="step" data-x="-2800" data-y="1200" data-z="1700" data-scale="1" data-rotate-y="-10">
+        <img src="images/1-2-3-use-case-sample.png">
+    </div>
+
+    <div id="let-the-user-choose" class="step" data-x="-1250" data-y="600" data-z="1650" data-scale="1" data-rotate-x="-20">
+        <p><strong>DON'T FORGET</strong></p>
+        <h3>Let clients<br>choose</h3>
+    </div>
+
+    <div id="select-theme" class="step" data-x="350" data-y="-250" data-z="0" data-scale=".7" data-rotate-x="0"></div>
+
+    <div id="clonation" class="step" data-x="600" data-y="-300" data-z="-200" data-scale=".1" data-rotate-y="-45">
+        <p style="text-align: center;"><strong>CLONATION?</strong></p>
+        <h3 style="text-align: center;"><a href="https://wetopi.com/app/#/sites" target="app">showme!</a></h3>
+    </div>
+
+    <div id="content-cycle" class="step" data-x="350" data-y="350" data-z="500" data-scale=".7" data-rotate-x="0"></div>
+
+
+    <div id="fail-fast" class="step" data-x="1250" data-y="-500" data-z="0" data-rotate-z="-30" data-scale="0.8">
+        <h3><strong>FAIL FAST !</strong></h3>
+        <p>
+            <small>In systems design, a fail-fast system is one which immediately reports at its interface any condition that is likely to indicate a failure.</small>
+        </p>
+    </div>
+
+    <div id="introduce-wordpress" class="step" data-x="1450" data-y="50" data-z="0" data-scale="0.8">
+        <h3><strong>Introduce WordPress</strong></h3>
+        <p>Train your customer during the development</p>
+    </div>
+
+    <div id="reduce-wordpress-admin" class="step" data-x="1450" data-y="600" data-z="0" data-rotate-y="30" data-scale="0.8">
+        <h4>Reducing admin options ...</h4>
+        <p>
+            <strong>Custom plugins</strong><br>
+            <small><a href="https://premium.wpmudev.org/blog/simplify-wordpress-backend/">
+                https://premium.wpmudev.org/blog/simplify-wordpress-backend/
+            </a>
+            </small>
+        </p>
+
+        <p>
+            <strong>WP plugins</strong><br>
+            Adminimize Plugin<br>
+            White Label CMS<br>
+        </p>
+    </div>
+
+    <div id="train-your-user" class="step" data-x="2300" data-y="600" data-z="-400" data-rotate-y="30" data-scale="0.8">
+        <p>Training your user ...</p>
+        <p style="margin-bottom:-12px; line-height: 1">
+            <small>Make your own</small>
+        </p>
+        <h3>
+            <strong>SCREENCASTS</strong>
+        </h3>
+        <p>Loom (Chrome extension)</p>
+        <p>ScreenFlow (MacOs)</p>
+        <p>QuickTime Player</p>
+    </div>
+
+    <div id="dev-team-collaboration" class="step" data-x="1450" data-y="1200" data-z="0" data-rotate-y="0" data-scale="0.8">
+
+        <h3 class="rotate">Dev collaboration</h3>
+
+        <h4><strong>Team passwords</strong></h4>
+        <p>Never share <strong>your</strong> passwords<br>
+            (WP, Sftp, Ssh, ...)</p>
+        <p>Identity Access Management<br>
+            <small>LastPass Enterprise, Meldium ... no more fremium :(</small>
+        </p>
+        <p>ManageWP, InfiniteWP, MainWP, ...</p>
+        <p>WP specialized hosting Panels</p>
+
+    </div>
+
+    <div id="share-your-wp-server" class="step" data-x="2250" data-y="1200" data-z="0" data-rotate-y="0" data-scale="0.8">
+        <iframe width="853" height="480" src="https://www.youtube.com/embed/ihzDLN4g_w4?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+
+    <div id="backups" class="step hidden" data-x="440" data-y="300" data-z="270" data-scale=".15">
+        <h3><strong>Introduce backups</strong></h3>
+        <p>As soon as possible</p>
+        <p>Automated</p>
+        <p>Off Site Backups</p>
+        <p>
+            <small><a href="https://wetopi.com/app/#/sites" target="app">demo</a></small>
+        </p>
+    </div>
+
+    <div id="staging-cycle" class="step" data-x="50" data-y="1200" data-z="1100" data-scale=".5" data-rotate-x="-15"></div>
+
+    <div id="staging-tips" class="step" data-x="50" data-y="1100" data-z="800" data-scale=".02" data-rotate-x="0">
+        <h3><strong>Staging</strong></h3>
+        <p>As soon as content is ready for review</p>
+        <p>A LOOP Limited in Time</p>
+    </div>
+
+
+    <div id="promote-to-production" class="step" data-x="-400" data-y="1800" data-z="0" data-scale="1" data-rotate-x="0">
+    </div>
+
+
+    <div id="maintenance" class="step" data-x="350" data-y="1750" data-z="0" data-scale="1" data-rotate-x="0">
+    </div>
+
+
+    <div id="maintenance" class="step" data-x="350" data-y="1750" data-z="0" data-scale="1" data-rotate-x="0">
+    </div>
+
+
+    <div id="overview" class="step" data-x="0" data-y="0" data-z="0" data-scale="6"></div>
+
+
+    <div id="the-workflow" class="step" data-x="-700" data-y="500" data-z="0" data-scale="1">
+        <img src="images/wordpress-design-workflow.png">
+    </div>
+
+</div>
+
+<!--
+    This is a UI plugin. You can read more about plugins in src/plugins/README.md.
+    For now, I'll just tell you that this adds some graphical controls to navigate the
+    presentation. In the CSS file you can style them as you want. We've put them bottom right.
+-->
+<div id="impress-toolbar"></div>
+
+
+<!--
+    
+    Last, but not least.
+    
+    To make all described above really work, you need to include impress.js in the page.
+    I strongly encourage to minify it first.
+    
+    In here I just include full source of the script to make it more readable.
+    
+    You also need to call a `impress().init()` function to initialize impress.js presentation.
+    And you should do it in the end of your document. Not only because it's a good practice, but also
+    because it should be done when the whole document is ready.
+    Of course you can wrap it in any kind of "DOM ready" event, but I was too lazy to do so ;)
+    
+-->
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+</body>
+</html>
